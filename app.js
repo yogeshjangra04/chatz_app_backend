@@ -51,7 +51,7 @@ const server = app.listen(port, () =>
 
 const io = require('socket.io')(server, {
     cors: {
-        origin: "https://nexus-chat-zeta.vercel.app/",
+        origin: "https://nexus-chat-zeta.vercel.app",
     },
     pingTimeout: 60000,
 
