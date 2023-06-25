@@ -8,15 +8,20 @@ const { notFound, errorHandler } = require('./middleware/errors')
 
 dotenv.config()
 app.use(express.json())
-const cors = require('cors');
-const corsOptions = {
-    origin: 'https://nexus-chat-zeta.vercel.app/',
-    credentials: true,
-    methods: "GET,HEAD,OPTIONS,PUT,PATCH,POST,DELETE",
-    allowedHeaders: ['Content-Type'],       //access-control-allow-credentials:true
-    optionSuccessStatus: 200
-}
-app.use(cors(corsOptions));
+// const cors = require('cors');
+app.use((req, res, next) => {
+    res.setHeader("Access-Control-Allow-Origin", "http://localhost:3000");
+    res.setHeader("Access-Control-Allow-Credentials", "true");
+    next();
+});
+// const corsOptions = {
+//     origin: 'https://nexus-chat-zeta.vercel.app/',
+//     credentials: true,
+//     methods: "GET,HEAD,OPTIONS,PUT,PATCH,POST,DELETE",
+//     allowedHeaders: ['Content-Type'],       //access-control-allow-credentials:true
+//     optionSuccessStatus: 200
+// }
+// app.use(cors(corsOptions));
 
 app.get('/', (req, res) => {
     res.send('Hello World!')
