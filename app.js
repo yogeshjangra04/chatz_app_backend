@@ -10,7 +10,7 @@ dotenv.config()
 app.use(express.json())
 const cors = require('cors');
 const corsOptions = {
-    origin: 'http://localhost:3000',
+    origin: 'https://nexus-chat-zeta.vercel.app/',
     credentials: true,            //access-control-allow-credentials:true
     optionSuccessStatus: 200
 }
@@ -42,7 +42,7 @@ const server = app.listen(port, () =>
 
 const io = require('socket.io')(server, {
     cors: {
-        origin: "http://localhost:3000",
+        origin: "https://nexus-chat-zeta.vercel.app/",
     },
     pingTimeout: 60000,
 
