@@ -11,7 +11,9 @@ app.use(express.json())
 const cors = require('cors');
 const corsOptions = {
     origin: 'https://nexus-chat-zeta.vercel.app/',
-    credentials: true,            //access-control-allow-credentials:true
+    credentials: true,
+    methods: "GET,HEAD,OPTIONS,PUT,PATCH,POST,DELETE",
+    allowedHeaders: ['Content-Type'],       //access-control-allow-credentials:true
     optionSuccessStatus: 200
 }
 app.use(cors(corsOptions));
