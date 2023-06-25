@@ -20,7 +20,7 @@ const corsOptions = {
     origin: 'https://nexus-chat-zeta.vercel.app',
     credentials: true,
     methods: "GET,HEAD,OPTIONS,PUT,PATCH,POST,DELETE",
-    allowedHeaders: ['Content-Type'],       //access-control-allow-credentials:true
+    allowedHeaders: '*',       //access-control-allow-credentials:true
     optionSuccessStatus: 200
 }
 app.use(cors(corsOptions));
