@@ -9,15 +9,9 @@ const { notFound, errorHandler } = require('./middleware/errors')
 dotenv.config()
 app.use(express.json())
 const cors = require('cors');
-// app.use((req, res, next) => {
-//     res.setHeader("Access-Control-Allow-Origin", "https://nexus-chat-zeta.vercel.app");
-//     res.setHeader("Access-Control-Allow-Credentials", "true");
-//     res.setHeader("Access-Control-Allow-Methods", "GET,HEAD,OPTIONS,POST,PUT");
-//     res.setHeader("Access-Control-Allow-Headers", "Access-Control-Allow-Headers, Origin,Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers");
-//     next();
-// });
+
 const corsOptions = {
-    origin: 'https://nexus-chat-zeta.vercel.app',
+    origin: process.env.FRONT_END_POINT,
     credentials: true,
     methods: "GET,HEAD,OPTIONS,PUT,PATCH,POST,DELETE",
     allowedHeaders: '*',       //access-control-allow-credentials:true
@@ -51,7 +45,7 @@ const server = app.listen(port, () =>
 
 const io = require('socket.io')(server, {
     cors: {
-        origin: "https://nexus-chat-zeta.vercel.app",
+        origin: ["http://localhost:3000"]
     },
     pingTimeout: 60000,
 

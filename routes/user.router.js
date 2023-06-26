@@ -7,4 +7,8 @@ router.route('/register').post(registerUser)
 router.route('/login').post(loginUser)
 router.route('/list').get(authenticateUser, getAllUsers)
 
+router.get('/', (req, res) => {
+       res.send('API is running....');
+     });
+
 module.exports = router
