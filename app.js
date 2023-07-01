@@ -45,7 +45,7 @@ const server = app.listen(port, () =>
 
 const io = require('socket.io')(server, {
     cors: {
-        origin: [`${process.env.FRONT_END_POINT}`]
+        origin: process.env.FRONT_END_POINT,
     },
     pingTimeout: 60000,
 
